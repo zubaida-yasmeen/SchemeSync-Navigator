@@ -1,1 +1,1 @@
-# SchemeSynch_Navigator
+# SchemeSync Navigator
