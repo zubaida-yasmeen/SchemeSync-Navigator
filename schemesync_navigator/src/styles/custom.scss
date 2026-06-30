@@ -1,0 +1,415 @@
+@import "variables";
+@import "~bootstrap/scss/bootstrap";
+
+// Global Styles
+html, body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $light;
+  color: $dark;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+// Prevent scrollbars on auth pages
+body.auth-page {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+html.auth-page {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+// App Layout Styles
+.app-layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+// Auth Container - Simple approach
+.auth-container {
+  min-height: 100vh !important;
+  // height: 100vh !important;
+  width: 100vw !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  position: relative !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030; // Higher than Bootstrap's navbar z-index
+  box-shadow: $box-shadow-sm;
+}
+
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1020;
+  background: white !important;
+  border-top: 1px solid #dee2e6 !important;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.05) !important;
+}
+// Gradient Footer Option
+.footer-gradient {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1020;
+  background: linear-gradient(135deg, #2C5282 0%, #1A365D 100%) !important;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.15);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  
+  &.with-header-footer {
+    padding-top: 70px; // Account for fixed navbar height
+    padding-bottom: 80px; // Updated for larger footer
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  &.full-height {
+    min-height: 100vh;
+  }
+}
+
+.content-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  
+  // Custom scrollbar styling
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+    
+    &:hover {
+      background: #a8a8a8;
+    }
+  }
+}
+
+// Custom Button Styles
+.btn-scheme-primary {
+  background: $gradient-primary;
+  border: none;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: $box-shadow-sm;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $box-shadow-md;
+    color: white;
+  }
+}
+
+.btn-scheme-outline {
+  border: 2px solid $primary;
+  color: $primary;
+  background: white;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: $primary;
+    color: white;
+    transform: translateY(-1px);
+  }
+}
+
+// Card Styles
+.scheme-card {
+  background: white;
+  border: 1px solid $border-color;
+  border-radius: 1rem;
+  box-shadow: $box-shadow-sm;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $box-shadow-md;
+  }
+}
+
+// Navbar Styles - Updated for fixed position
+.navbar-scheme {
+  background: $navbar-bg !important;
+  box-shadow: $box-shadow-md;
+  padding: 0.75rem 0;
+  
+  .navbar-brand {
+    font-weight: bold;
+    color: white !important;
+    font-size: 1.5rem;
+  }
+  
+  .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 500;
+    
+    &:hover, &.active {
+      color: white !important;
+    }
+  }
+  
+  .dropdown-toggle::after {
+    display: none;
+  }
+}
+// Add this to your existing custom.scss file:
+
+// Register page specific styles - allows normal page scrolling
+html.auth-page-scrollable,
+body.auth-page-scrollable {
+  overflow: auto !important;
+  height: auto !important;
+}
+
+// Register container - normal scrollable page
+.register-container {
+  overflow-y: auto;
+  min-height: 100vh;
+  
+  .scheme-card {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+// Responsive adjustments for register
+@media (max-width: 768px) {
+  .register-container {
+    padding: 20px 0 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .register-container {
+    padding: 10px 0 !important;
+    
+    .container {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+
+
+// Footer Styles - Updated for better visibility
+.footer-fixed {
+  background: white !important;
+  min-height: 70px; // Increased height
+  display: flex;
+  align-items: center;
+  
+  .text-primary {
+    color: #2C5282 !important;
+    font-weight: 600;
+  }
+  
+  .text-muted {
+    color: #6c757d !important;
+  }
+}
+
+// Status Badges
+.status-applied { background: $info; }
+.status-under-review { background: $warning; }
+.status-approved { background: $success; }
+.status-rejected { background: $danger; }
+.status-on-hold { background: $secondary; }
+
+// Form Styles
+.form-scheme {
+  .form-control {
+    border: 2px solid $border-color;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    
+    &:focus {
+      border-color: $primary;
+      box-shadow: 0 0 0 0.2rem rgba(44, 82, 130, 0.25);
+    }
+  }
+  
+  .form-label {
+    font-weight: 600;
+    color: $dark;
+  }
+}
+
+// Loading Animation
+.loading-spinner {
+  border: 3px solid $light;
+  border-top: 3px solid $primary;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Additional utility classes
+.hover-lift {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $box-shadow-md;
+  }
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Admin specific styles
+.admin-stats-card {
+  background: linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-info) 100%);
+  
+  &.success {
+    background: linear-gradient(135deg, var(--bs-success) 0%, #20c997 100%);
+  }
+  
+  &.warning {
+    background: linear-gradient(135deg, var(--bs-warning) 0%, #ffc107 100%);
+  }
+  
+  &.info {
+    background: linear-gradient(135deg, var(--bs-info) 0%, #17a2b8 100%);
+  }
+}
+
+// Auth page specific animations
+.auth-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Custom alert styles
+.alert {
+  border-radius: 0.5rem;
+  border: none;
+  
+  &.alert-danger {
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(220, 53, 69, 0.05) 100%);
+    border-left: 4px solid #dc3545;
+    color: #721c24;
+  }
+  
+  &.alert-success {
+    background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(40, 167, 69, 0.05) 100%);
+    border-left: 4px solid #28a745;
+    color: #155724;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .main-content.with-header-footer {
+    padding-top: 60px; // Smaller navbar on mobile
+    padding-bottom: 70px; // Adjusted for mobile footer height
+  }
+  
+  .content-wrapper {
+    padding: 0.5rem;
+  }
+  
+  .footer-fixed {
+    min-height: 60px; // Slightly smaller on mobile
+  }
+  
+  .auth-container {
+    padding: 10px !important;
+  }
+}
+
+// Mobile responsive navbar
+@media (max-width: 991px) {
+  .navbar-scheme {
+    .navbar-collapse {
+      background: $navbar-bg;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      box-shadow: $box-shadow-md;
+    }
+  }
+}
+
+// Extra small devices
+@media (max-width: 576px) {
+  .auth-container {
+    padding: 5px !important;
+  }
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
+
+// Prevent content from jumping when scrollbar appears/disappears
+body:not(.auth-page) {
+  overflow-y: scroll;
+}

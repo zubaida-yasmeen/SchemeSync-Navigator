@@ -1,0 +1,24 @@
+// Professional Color Palette for Scheme Seva
+$primary: #2C5282;        // Deep Blue - Trust & Government
+$secondary: #4A5568;      // Slate Gray - Professional
+$success: #38A169;        // Green - Approved/Success
+$info: #3182CE;           // Blue - Information
+$warning: #D69E2E;        // Amber - Pending/Warning
+$danger: #E53E3E;         // Red - Rejected/Error
+$light: #F7FAFC;          // Very Light Gray
+$dark: #2D3748;           // Dark Gray
+$white: #FFFFFF;
+$gradient-primary: linear-gradient(135deg, #2C5282 0%, #3182CE 100%);
+$gradient-secondary: linear-gradient(135deg, #4A5568 0%, #718096 100%);
+
+// Custom Colors
+$scheme-card-bg: #F8FAFC;
+$hover-light: #EDF2F7;
+$border-color: #E2E8F0;
+$text-muted: #718096;
+$navbar-bg: #1A365D;
+
+// Shadows
+$box-shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$box-shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.1);
+$box-shadow-lg: 0 15px 35px rgba(0,0,0,0.1), 0 3px 10px rgba(0,0,0,0.07);
